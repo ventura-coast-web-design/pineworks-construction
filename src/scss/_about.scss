@@ -1,0 +1,422 @@
+@use "variables" as *;
+
+// About Page Styles
+
+.about-hero {
+  background: linear-gradient(135deg, #2c5530 0%, #1a3d1e 100%);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+  
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: $color-secondary;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .subtitle {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    font-style: italic;
+  }
+}
+
+.about-content {
+  padding: 80px 0;
+  background: #f8f9fa;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
+  align-items: start;
+  
+  .story-text {
+    h2 {
+      font-size: 2.5rem;
+      color: #2c5530;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: #4a5568;
+    }
+  }
+  
+  .story-image {
+    .image-placeholder {
+      background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+      border-radius: 12px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+    }
+  }
+}
+
+.quote-box {
+  background: white;
+  border-left: 4px solid #2c5530;
+  padding: 30px;
+  margin: 40px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  
+  blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #2c5530;
+    margin: 0 0 15px 0;
+    line-height: 1.6;
+  }
+  
+  cite {
+    color: $color-primary;
+    font-size: 1rem;
+    font-style: normal;
+  }
+}
+
+// Timeline Styles
+.timeline {
+  margin: 80px 0;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #2c5530, #4a7c59);
+    transform: translateX(-50%);
+  }
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+  position: relative;
+  
+  &:nth-child(odd) {
+    flex-direction: row;
+    
+    .year {
+      margin-right: 40px;
+    }
+  }
+  
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+    
+    .year {
+      margin-left: 40px;
+    }
+    
+    .content {
+      text-align: right;
+    }
+  }
+  
+  .year {
+    background: #2c5530;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    min-width: 100px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(44, 85, 48, 0.3);
+  }
+  
+  .content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    
+    h3 {
+      color: #2c5530;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    
+    p {
+      color: #4a5568;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+}
+
+// Values Section
+.values-section {
+  margin: 80px 0;
+  
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c5530;
+    margin-bottom: 50px;
+    font-weight: 600;
+  }
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.value-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  .value-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    color: #2c5530;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// Team Section
+.team-section {
+  margin: 80px 0;
+  
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c5530;
+    margin-bottom: 50px;
+    font-weight: 600;
+  }
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.team-member {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  
+  .member-photo {
+    margin-bottom: 25px;
+    
+    .photo-placeholder {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      font-size: 2rem;
+      font-weight: 700;
+      color: $color-primary;
+      border: 4px solid #2c5530;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+  }
+  
+  h3 {
+    color: #2c5530;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  
+  .title {
+    color: $color-primary;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  
+  p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// Community Section
+.community-section {
+  margin: 80px 0;
+  text-align: center;
+  
+  h2 {
+    font-size: 2.5rem;
+    color: #2c5530;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #4a5568;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 50px;
+  }
+}
+
+.community-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.stat {
+  background: white;
+  padding: 40px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  
+  .number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c5530;
+    margin-bottom: 10px;
+  }
+  
+  .label {
+    color: $color-primary;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 60px 0;
+    
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    .subtitle {
+      font-size: 1.1rem;
+    }
+  }
+  
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .timeline {
+    &::before {
+      left: 20px;
+    }
+  }
+  
+  .timeline-item {
+    flex-direction: column !important;
+    text-align: left;
+    
+    .year {
+      margin: 0 0 20px 0 !important;
+      align-self: flex-start;
+    }
+    
+    .content {
+      text-align: left !important;
+    }
+  }
+  
+  .values-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .community-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .quote-box {
+    padding: 20px;
+    
+    blockquote {
+      font-size: 1.1rem;
+    }
+  }
+  
+  .community-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat .number {
+    font-size: 2.5rem;
+  }
+}
