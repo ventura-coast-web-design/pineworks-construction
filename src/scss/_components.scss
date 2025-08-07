@@ -51,8 +51,10 @@
 .logo {
   font-size: 1.25rem;
   font-weight: 700;
-  font-family: $font-family-heading;
-  color: white;
+  img {
+    width: 8rem;
+    height: auto;
+  }
   
   @media (min-width: $breakpoint-md) {
     font-size: 1.5rem;
@@ -135,7 +137,10 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   
   .logo {
-    font-size: 1.5rem;
+    img {
+      width: 8rem;
+      height: auto;
+    }
   }
 }
 
