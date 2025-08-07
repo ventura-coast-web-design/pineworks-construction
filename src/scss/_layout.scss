@@ -1,107 +1,100 @@
-@use "variables";
-@use "mixins";
-// Layout components
+@use "variables" as *;
+
+// Header styles - Mobile first (now handled in components)
 .site-header {
-  background-color: variables.$background-color;
-  border-bottom: 1px solid variables.$border-color;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.nav {
-  @include mixins.container;
-
-  &__container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0;
-  }
-
-  &__logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: variables.$secondary-color;
-  }
-
-  &__menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-
-    @include mixins.responsive(variables.$breakpoint-md) {
-      gap: 3rem;
-    }
-  }
-
-  &__link {
-    color: variables.$text-color;
-    font-weight: 500;
-    transition: color 0.2s ease;
-
-    &:hover {
-      color: variables.$primary-color;
-    }
+  background-color: $color-primary;
+  color: white;
+  padding: $spacing-sm 0;
+  
+  @media (min-width: $breakpoint-md) {
+    padding: $spacing-sm 0;
   }
 }
 
+// Main content area - Mobile first
 .site-main {
-  min-height: calc(100vh - 140px);
-  padding: 2rem 0;
-
-  @include mixins.responsive(variables.$breakpoint-md) {
-    padding: 4rem 0;
+  min-height: calc(100vh - 200px); // Adjust based on header/footer height
+  
+  @media (min-width: $breakpoint-md) {
+    min-height: calc(100vh - 180px);
   }
 }
 
+// Footer styles - Mobile first
 .site-footer {
-  background-color: variables.$light-background;
-  border-top: 1px solid variables.$border-color;
-  padding: 2rem 0;
-  margin-top: auto;
-}
-
-.footer__container {
-  @include mixins.container;
+  background-color: $color-footer;
+  color: white;
   text-align: center;
-  color: variables.$light-text;
+  padding: $spacing-md; // Smaller padding on mobile
+  font-size: 0.75rem; // Smaller on mobile
+  
+  @media (min-width: $breakpoint-md) {
+    padding: $spacing-lg;
+    font-size: 0.875rem;
+  }
 }
 
-// Grid system
+// Container utilities - Mobile first
+.container {
+  max-width: 80rem; // 1280px
+  margin: 0 auto;
+  padding: 0 $spacing-md; // Smaller padding on mobile
+  
+  @media (min-width: $breakpoint-md) {
+    padding: 0 $spacing-lg;
+  }
+}
+
+.container-sm {
+  max-width: 64rem; // 1024px
+  margin: 0 auto;
+  padding: 0 $spacing-md; // Smaller padding on mobile
+  
+  @media (min-width: $breakpoint-md) {
+    padding: 0 $spacing-lg;
+  }
+}
+
+// Section spacing - Mobile first
+.section {
+  padding: $spacing-xl $spacing-md; // Smaller padding on mobile
+  
+  @media (min-width: $breakpoint-md) {
+    padding: $spacing-2xl $spacing-lg;
+  }
+  
+  &--alt {
+    background-color: $color-background-alt;
+  }
+  
+  &--dark {
+    background-color: $color-primary;
+    color: white;
+  }
+}
+
+// Grid layouts - Mobile first
 .grid {
   display: grid;
-  gap: 2rem;
-
-  &--2 {
-    grid-template-columns: 1fr;
-
-    @include mixins.responsive(variables.$breakpoint-md) {
+  gap: $spacing-md; // Smaller gap on mobile
+  
+  @media (min-width: $breakpoint-md) {
+    gap: $spacing-lg;
+  }
+  
+  &--2-cols {
+    grid-template-columns: 1fr; // Start with 1 column on mobile
+    
+    @media (min-width: $breakpoint-md) {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-
-  &--3 {
-    grid-template-columns: 1fr;
-
-    @include mixins.responsive(variables.$breakpoint-md) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include mixins.responsive(variables.$breakpoint-lg) {
+  
+  &--3-cols {
+    grid-template-columns: 1fr; // Start with 1 column on mobile
+    
+    @media (min-width: $breakpoint-md) {
       grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  &--4 {
-    grid-template-columns: 1fr;
-
-    @include mixins.responsive(variables.$breakpoint-md) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include mixins.responsive(variables.$breakpoint-lg) {
-      grid-template-columns: repeat(4, 1fr);
     }
   }
 } 
