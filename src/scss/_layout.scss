@@ -32,6 +32,43 @@
     padding: $spacing-lg;
     font-size: 0.875rem;
   }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    
+    p {
+      margin: 0;
+    }
+    
+    .designer-credit {
+      font-size: 0.7rem;
+      opacity: 0.8;
+      
+      @media (min-width: $breakpoint-md) {
+        font-size: 0.8rem;
+      }
+      
+      a {
+        color: $color-secondary;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        
+        &:hover {
+          color: white;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
 
 // Container utilities - Mobile first
